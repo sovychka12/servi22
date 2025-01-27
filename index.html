@@ -1,10 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>Моя первая веб-страница</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги - Детский центр "Совушка"</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Добро пожаловать на мою первую веб-страницу!</h1>
-    <p>Это пример простого HTML-документа.</p>
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="" alt="Логотип Совушка" class="logo-img">
+            </a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#" class="nav-link">Услуги</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Расписание</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">О нас</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Преподаватели</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="header-contacts">
+                <a href="#" class="telegram-icon">
+                    <img src="" alt="Telegram">
+                </a>
+                <a href="tel:+79999999999" class="phone-number">+7 (999) 999-99-99</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="services-buttons">
+            <div class="container services-buttons-container">
+                <button class="service-button correction-button">Коррекционные услуги</button>
+                <button class="service-button leisure-button">Досуговые услуги</button>
+            </div>
+        </section>
+
+        <section class="promotion">
+            <div class="container promotion-container">
+                <p class="promotion-text">Диагностика в подарок при покупке абонемента в день диагностики!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <a href="#" class="logo-footer">
+                <img src="" alt="Логотип Совушка" class="logo-img-footer">
+            </a>
+            <div class="footer-info">
+                <p>Адрес: г. Москва, ул. Пушкина, д.10</p>
+                <p>Телефон: +7 (999) 999-99-99</p>
+                <p>E-mail: info@sovushka.ru</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
