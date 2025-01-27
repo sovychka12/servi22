@@ -1,15 +1,17 @@
 /* Общие стили */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Comfortaa', cursive;
     margin: 0;
     padding: 0;
     color: #4d6642;
+    line-height: 1.6;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    box-sizing: border-box;
 }
 
 /* Шапка */
@@ -26,35 +28,93 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .logo-img {
     height: 50px;
     width: auto;
 }
-.nav-list{
+.menu-toggle{
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    position: relative;
+}
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after{
+    display: block;
+    background-color: #4d6642;
+    width: 25px;
+    height: 2px;
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+}
+.menu-icon::before,
+.menu-icon::after{
+    content: '';
+    position: absolute;
+}
+.menu-icon::before{
+    top: -7px;
+}
+.menu-icon::after{
+    top: 7px;
+}
+.menu-toggle.open .menu-icon {
+    background-color: transparent;
+}
+.menu-toggle.open .menu-icon::before{
+    transform: translateY(7px) rotate(45deg);
+}
+.menu-toggle.open .menu-icon::after{
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.nav-wrapper{
+    flex-grow: 1;
+}
+.nav {
+    text-align: center;
+}
+
+.nav-list {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    display: flex;
+    display: inline-flex;
 }
-.nav-item{
-    margin-left: 20px;
+
+.nav-item {
+    margin: 0 10px;
 }
-.nav-link{
+
+.nav-link {
     text-decoration: none;
     color: #4d6642;
     font-weight: bold;
-}
-.header-contacts{
-    display: flex;
-    align-items: center;
+    transition: color 0.3s ease;
 }
 
-.telegram-icon{
+.nav-link:hover {
+    color: #96ab54;
+}
+
+.header-contacts {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    justify-content: flex-end;
+}
+
+.telegram-icon {
     margin-right: 10px;
 }
-.telegram-icon img{
+
+.telegram-icon img {
     width: 30px;
     height: auto;
 }
@@ -65,9 +125,25 @@ body {
     font-weight: bold;
 }
 
+/* Hero Section */
+.hero {
+    padding: 60px 0;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+.hero-title {
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.hero-description {
+    font-size: 1.1em;
+}
+
 /* Блок кнопок услуг */
 .services-buttons {
-    padding: 50px 0;
+    padding: 40px 0;
     background-color: #f0f0f0;
     text-align: center;
 }
@@ -75,48 +151,230 @@ body {
 .services-buttons-container {
     display: flex;
     justify-content: center;
-    gap: 20px; /* расстояние между кнопками */
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 .service-button {
     background-color: #96ab54;
     color: #fff;
     border: none;
-    padding: 15px 30px;
-    font-size: 18px;
+    padding: 12px 20px;
+    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .service-button:hover {
     background-color: #4d6642;
 }
 
-.correction-button{
+.correction-button {
     background-color: #4d6642;
 }
+
 .correction-button:hover {
     background-color: #96ab54;
 }
 
-/* Блок рекламы */
-.promotion{
+/* Детали услуг */
+.services-details {
     padding: 30px 0;
-    background-color: #e5cd96;
+    background-color: #ffffff;
+}
+
+.services-details.hidden {
+    display: none;
+}
+
+.services-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.services-details h2 {
+    margin-bottom: 15px;
     text-align: center;
 }
+
+.details-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 90%;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.details-img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.details-list {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+}
+
+.details-list li {
+    padding: 3px 0;
+    margin-left: 20px;
+    position: relative;
+}
+
+.details-list li::before {
+    content: "\2022";
+    color: #96ab54;
+    font-size: 1.2em;
+    position: absolute;
+    left: -20px;
+}
+
+/* Блок рекламы (изменения) */
+.promotion {
+    padding: 60px 0;
+    background-image: url("images/диагностика_bg.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    text-align: left;
+    color: #fff;
+}
+
+.promotion::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 0;
+}
+
+.promotion-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.promotion-content {
+    padding: 20px;
+    max-width: 90%;
+}
+
 .promotion-text {
     font-size: 20px;
     font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.promotion-button {
+    background-color: #96ab54;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.promotion-button:hover {
+    background-color: #e5cd96;
+    box-shadow: 0 0 10px 3px #96ab54;
+}
+
+/* Галерея */
+.gallery {
+    padding: 30px 0;
+    background-color: #ffffff;
+}
+
+.gallery-container h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.gallery-item {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Отзывы */
+.testimonials {
+    padding: 30px 0;
+    background-color: #f0f0f0;
+}
+
+.testimonials-container h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.testimonial-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    padding: 15px;
+}
+
+.testimonial {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-width: 250px;
+    scroll-snap-align: start;
+}
+
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+
+.testimonial-author {
+    font-weight: bold;
+    text-align: right;
+    font-size: 0.9em;
 }
 
 /* Подвал */
 .footer {
     background-color: #4d6642;
     color: #fff;
-    padding: 30px 0;
+    padding: 20px 0;
     text-align: center;
 }
 
@@ -126,16 +384,86 @@ body {
     align-items: center;
     flex-direction: column;
 }
-.logo-img-footer{
+
+.logo-img-footer {
     height: 40px;
     width: auto;
     margin-bottom: 10px;
 }
+
 .footer-info p {
-    margin: 5px 0;
+    margin: 3px 0;
+    font-size: 0.9em;
 }
+
 /* Стили для фиксации header */
 .header.sticky {
     background-color: rgba(229, 205, 150, 0.9);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .nav-wrapper {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: #e5cd96;
+      transform-origin: top;
+      transition: transform 0.3s ease;
+      transform: scaleY(0);
+    }
+    .nav-wrapper.open{
+      transform: scaleY(1);
+    }
+    .nav {
+      text-align: center;
+    }
+
+    .nav-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .nav-item {
+        margin: 10px 0;
+    }
+    .header-contacts{
+        justify-content: center;
+        margin-bottom: 10px;
+        flex-direction: column;
+    }
+    .menu-toggle{
+        display: block;
+        margin-left: auto;
+    }
+    .services-buttons-container {
+        flex-direction: column;
+    }
+
+    .promotion-container {
+        flex-direction: column;
+    }
+
+    .promotion-content {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .promotion-text {
+        font-size: 1.2em;
+        text-align: center;
+    }
+
+    .services-details .details-card {
+        max-width: 95%;
+    }
 }

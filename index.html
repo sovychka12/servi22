@@ -8,6 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
@@ -15,15 +21,20 @@
             <a href="#" class="logo">
                 <img src="" alt="Логотип Совушка" class="logo-img">
             </a>
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li class="nav-item"><a href="#" class="nav-link">Услуги</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Расписание</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">О нас</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Преподаватели</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Контакты</a></li>
-                </ul>
-            </nav>
+            <button class="menu-toggle" aria-label="Toggle menu">
+              <span class="menu-icon"></span>
+            </button>
+            <div class="nav-wrapper">
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="#" class="nav-link">Услуги</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Расписание</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">О нас</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Преподаватели</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
             <div class="header-contacts">
                 <a href="#" class="telegram-icon">
                     <img src="" alt="Telegram">
@@ -34,16 +45,97 @@
     </header>
 
     <main>
+        <section class="hero">
+            <div class="container hero-container">
+                <h1 class="hero-title">Добро пожаловать в мир "Совушка"!</h1>
+                <p class="hero-description">Мы помогаем детям раскрыть свой потенциал и полюбить учиться.</p>
+            </div>
+        </section>
+
         <section class="services-buttons">
             <div class="container services-buttons-container">
-                <button class="service-button correction-button">Коррекционные услуги</button>
-                <button class="service-button leisure-button">Досуговые услуги</button>
+                <button class="service-button correction-button" data-target="correction-details">
+                    <i class="fas fa-brain"></i>
+                    Коррекционные услуги
+                </button>
+                <button class="service-button leisure-button" data-target="leisure-details">
+                    <i class="fas fa-gamepad"></i>
+                     Досуговые услуги
+                </button>
+            </div>
+        </section>
+
+        <section class="services-details" id="correction-details">
+            <div class="container services-details-container">
+                <h2>Коррекционные услуги</h2>
+                <div class="details-card">
+                    <img src="" alt="Коррекционные занятия" class="details-img">
+                    <p>Наши специалисты проводят индивидуальные и групповые занятия, направленные на коррекцию нарушений речи, внимания, поведения и других аспектов развития.</p>
+                    <ul class="details-list">
+                        <li>Развитие речи</li>
+                        <li>Логопедические занятия</li>
+                        <li>Нейрокоррекция</li>
+                        <li>Развитие внимания и памяти</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-details hidden" id="leisure-details">
+            <div class="container services-details-container">
+                <h2>Досуговые услуги</h2>
+                <div class="details-card">
+                    <img src="" alt="Досуговые занятия" class="details-img">
+                    <p>В нашем центре есть множество интересных и развивающих занятий, которые помогут детям весело провести время и приобрести новые навыки.</p>
+                    <ul class="details-list">
+                        <li>Творческие мастерские</li>
+                        <li>Развивающие игры</li>
+                        <li>Музыкальные занятия</li>
+                        <li>Детский фитнес</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <section class="promotion">
             <div class="container promotion-container">
-                <p class="promotion-text">Диагностика в подарок при покупке абонемента в день диагностики!</p>
+                <div class="promotion-content">
+                    <p class="promotion-text">Диагностика в подарок при покупке абонемента в день диагностики!</p>
+                    <button class="promotion-button">Заказать абонемент</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery">
+            <div class="container gallery-container">
+                <h2>Фотогалерея</h2>
+                <div class="gallery-grid">
+                    <img src="" alt="Фото 1" class="gallery-item">
+                    <img src="" alt="Фото 2" class="gallery-item">
+                    <img src="" alt="Фото 3" class="gallery-item">
+                    <img src="" alt="Фото 4" class="gallery-item">
+                    <img src="" alt="Фото 5" class="gallery-item">
+                    <img src="" alt="Фото 6" class="gallery-item">
+                </div>
+            </div>
+        </section>
+        <section class="testimonials">
+            <div class="container testimonials-container">
+                <h2>Отзывы родителей</h2>
+                <div class="testimonial-slider">
+                    <div class="testimonial">
+                        <p class="testimonial-text">"Замечательный центр! Мой ребенок стал гораздо более усидчивым и внимательным."</p>
+                        <p class="testimonial-author">- Мария Иванова</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial-text">"Очень довольны занятиями, педагоги — настоящие профессионалы. Видим значительные улучшения."</p>
+                        <p class="testimonial-author">- Елена Петрова</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial-text">"Ребенок с удовольствием ходит на занятия. Спасибо за вашу работу!"</p>
+                        <p class="testimonial-author">- Анна Смирнова</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
